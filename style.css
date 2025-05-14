@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #E6C4D4;
+  color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Container principal */
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Título */
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #591C27;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 4px rgba(211, 47, 47, 0.2);
+}
+
+/* Botões */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 12px 24px;
+  border: 2px solid #591C27;
+  background-color: transparent;
+  color: #591C27;
+  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 550;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+button:hover,
+button.ativo {
+  background-color: #591C27;
+  color: #E6C4D4;
+  box-shadow: 0 0 10px rgba(211, 47, 47, 0.4);
+}
+
+/* Botão de "Home" */
+#btn-home {
+  padding: 10px 10px; /* Tamanho padrão dos outros botões */
+  border: none;
+  background-color: transparent;
+  color: #591C27;
+  font-size: 1rem; 
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#btn-home i {
+  font-size: 1rem;
+}
+
+#btn-home:hover {
+  background-color: #591C27;
+  color: #E6C4D4;
+}
+
+/* Resumo */
+#resumo {
+  display: none;
+  margin-top: 20px;
+  max-width: 700px;
+  font-size: 1.1rem;
+  background: #D9435F;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+  color: #E6C4D4;
+  white-space: pre-wrap;
+  text-align: justify;
+  position: relative;
+}
+
+/* Imagem final no rodapé */
+footer.imagem-final {
+  width: 100vw;
+  height: 280px;
+  background-image: url('mac-miller.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+    min-width: 130px;
+    padding: 10px 20px;
+  }
+
+  #resumo {
+    font-size: 1rem;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 80%;
+  }
+
+  #resumo {
+    padding: 20px;
+  }
+}

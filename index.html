@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Álbuns do Mac Miller</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+</head>
+
+<body>
+
+    <main class="content">
+        <h1>Álbuns do Mac Miller</h1>
+
+        <!-- Botão de Início -->
+        <div class="home-button-container">
+            <button id="btn-home" onclick="resetarPagina()"><i class="fa-solid fa-house"></i></button>
+        </div>
+
+
+        <!-- Botões de álbuns -->
+        <div class="button-container">
+            <button onclick="mostrarResumo('swimming')">Swimming</button>
+            <button onclick="mostrarResumo('circles')">Circles</button>
+            <button onclick="mostrarResumo('good')">GO:OD AM</button>
+            <button onclick="mostrarResumo('divine')">The Divine Feminine</button>
+            <button onclick="mostrarResumo('movies')">Watching Movies with the Sound Off</button>
+        </div>
+
+        <!-- Área de resumo -->
+        <div id="resumo"></div>
+    </main>
+
+    <!-- Imagem no rodapé -->
+    <footer class="imagem-final"></footer>
+
+    <!-- Script -->
+    <script>
+        function mostrarResumo(album) {
+            let resumo = '';
+            const resumoEl = document.getElementById('resumo');
+
+            // Remove destaque de todos os botões
+            document.querySelectorAll('.button-container button').forEach(btn => {
+                btn.classList.remove('ativo');
+            });
+
+            // Define conteúdo com base no álbum
+            switch (album) {
+                case 'swimming':
+                    resumo = `<h2>Swimming (2018)</h2><p>Em Swimming, Mac Miller levou sua sonoridade a um território mais melódico e introspectivo. O álbum aborda temas como autoconhecimento, lutas pessoais e a busca por equilíbrio emocional, com um tom mais melancólico e reflexivo. As faixas exploram um mix de rap, R&B e pop, com produções mais suaves. Músicas como "Self Care" e "What's the Use?" exemplificam a busca de Mac por serenidade e entendimento de si mesmo.</p>`;
+                    break;
+                case 'circles':
+                    resumo = `<h2>Circles (2020)</h2><p>Lançado postumamente, Circles é o álbum mais experimental e fusionado de Mac Miller, mesclando pop, rock, hip-hop e música eletrônica. O disco foi pensado como uma continuação de Swimming, e apresenta uma sonoridade mais introspectiva, com letras sobre crescimento pessoal, luto e a busca por aceitação. Faixas como "Good News" e "Circles" trazem uma melancolia suave e uma reflexão sobre a fragilidade da vida, apresentando um Mac Miller que estava evoluindo para novos horizontes musicais.</p>`;
+                    break;
+                case 'good':
+                    resumo = `<h2>GO:OD AM (2015)</h2><p>Neste álbum, Mac Miller encontrou um equilíbrio entre os elementos experimentais de Watching Movies e a acessibilidade de Blue Slide Park. GO:OD AM apresenta letras sobre superação de dificuldades pessoais, recuperação de vícios e um desejo de evolução. A sonoridade é mais madura e diversificada, transitando entre rap, jazz e soul. O álbum foi bem recebido pela crítica e contém músicas como "100 Grandkids" e "Weekend".</p>`;
+                    break;
+                case 'divine':
+                    resumo = `<h2>The Divine Feminine (2016)</h2><p>Com The Divine Feminine, Mac Miller mergulhou em um conceito mais emocional e espiritual, abordando o amor e a conexão com o feminino. O álbum tem influências de jazz, R&B e soul, trazendo um som mais suave e suave. É um disco dedicado ao amor em suas diversas formas, com faixas como "Dang!" (com Anderson .Paak) e "My Favorite Part" (com Ariana Grande). O trabalho mostra a busca por um equilíbrio entre a sensualidade e a espiritualidade.</p>`;
+                    break;
+                case 'movies':
+                    resumo = `<h2>Watching Movies with the Sound Off (2013)</h2><p>Com este álbum, Mac Miller fez uma transição significativa para um som mais introspectivo e experimental. Ele deixou de lado o estilo mais comercial do primeiro álbum, adotando produções mais densas e complexas. O trabalho aborda temas como vícios, saúde mental e a busca por sentido, com uma sonoridade mais sombria e psicodélica. Faixas como "S.D.S." e "Watching Movies" exemplificam esse novo estilo mais confessional e introspectivo.</p>`;
+                    break;
+            }
+
+            // Mostra o resumo e ativa o botão
+            if (resumo) {
+                resumoEl.innerHTML = resumo;
+                resumoEl.style.display = 'block';
+                const botaoClicado = document.querySelector(`button[onclick*="${album}"]`);
+                if (botaoClicado) botaoClicado.classList.add('ativo');
+            } else {
+                resumoEl.innerHTML = '';
+                resumoEl.style.display = 'none';
+            }
+        }
+
+        function resetarPagina() {
+            const resumoEl = document.getElementById('resumo');
+            resumoEl.innerHTML = '';
+            resumoEl.style.display = 'none';
+
+            document.querySelectorAll('.button-container button').forEach(btn => {
+                btn.classList.remove('ativo');
+            });
+        }
+    </script>
+</body>
+
+</html>
